@@ -1,10 +1,11 @@
-PImage  I;
+PImage  I, N;
 
 void setup(){
   size(1300, 700);
-  background(#96D4F0);
+  N = loadImage("New york 2.jpg");
+  image(N,0,0);
 }
 void draw(){
-   I = loadImage("Avion.png"); 
+   I = loadImage("Avion bajando.png"); 
    image(I,0,0);
 }
