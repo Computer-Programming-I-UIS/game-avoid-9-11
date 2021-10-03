@@ -1,11 +1,16 @@
-PImage  I, N;
+PImage fondo, S, B;
+int x;
+
+avion Avion;
 
 void setup(){
+  fondo = loadImage("New york 2.jpg");
   size(1300, 700);
-  N = loadImage("New york 2.jpg");
-  image(N,0,0);
+  Avion = new avion();
 }
+
 void draw(){
-   I = loadImage("Avion bajando.png"); 
-   image(I,0,0);
+  background(fondo);
+  imageMode(CORNER);
+  Avion.MostrarYMover();
 }
