@@ -1,4 +1,3 @@
-int y;
 PImage  avi;
 PImage exp;
 
