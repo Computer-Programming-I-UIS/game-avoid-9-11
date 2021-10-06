@@ -11,7 +11,7 @@ avion(){
   
 void MostrarYMover(){
   imageMode(CENTER);
-  image(avi, 100 ,y);
+  image(avi, width/2 ,y);
   
   if(!keyPressed){
     avi = loadImage("Avion.png");
