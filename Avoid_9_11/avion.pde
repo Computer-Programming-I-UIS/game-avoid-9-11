@@ -19,13 +19,13 @@ void MostrarYMover(){
   
     if(keyPressed && (key == CODED)){
     if(keyCode == UP){
-         y -=20;
+         y -=3;
          avi = loadImage("Avion subiendo.png");
          if(y < 30){
            y = 30;
          }
     }else if(keyCode == DOWN){
-      y +=20;
+      y +=3;
       avi = loadImage("Avion bajando.png");
        if(y > 630){
           y = 630;
