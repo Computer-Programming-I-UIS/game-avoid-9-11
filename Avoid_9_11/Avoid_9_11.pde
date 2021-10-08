@@ -2,6 +2,7 @@
 PImage fondo, S, B; 
 PImage edificio;
 PImage pantallainicio;
+PImage guia;
 
 //--Variables usadas--
 int x = 0, y; 
@@ -28,12 +29,17 @@ void setup(){
 }
 
 void mousePressed(){
-  if(modojuego==1){
-    /*vx[0] = 600;            //Cambio de modos de juego con presionar el clic
-    vy[0] = height/2;
-    vx[1] = 900;              //Ubicación del primer par de edificios
-    vy[1] = 600;*/
+  if(modojuego == 1){
+    if(mouseX > 468 && mouseX < 806 && mouseY > 486 && mouseY < 553){
     modojuego = 0;
+  }
+  if(mouseX > 505 && mouseX < 706 && mouseY > 580 && mouseY < 644){
+      modojuego = 2;
+    } 
+  }else if (modojuego == 2) {
+      if(mouseX > 860 && mouseX < 1190 && mouseY > 590 && mouseY < 680){
+      modojuego = 1; 
+    }
   }
 }
 
@@ -52,8 +58,8 @@ void draw(){
     edificio = loadImage("edificio.png");
     for(int i = 0 ; i < 2 ; i++){
       imageMode(CENTER);
-      image(edificio, vx[i], vy [i] - (edificio.height/2+100));  //Generación de los edificios
-      image(edificio, vx[i], vy [i] + (edificio.height/2+100));
+      image(edificio, vx[i], vy [i] - (edificio.height/2+150));  //Generación de los edificios
+      image(edificio, vx[i], vy [i] + (edificio.height/2+150));
      if(vx[i] < 0){
         vy[i] = (int)random(200, height-200);                     //Movimiento de los edificios
         vx[i] = width;
@@ -62,7 +68,7 @@ void draw(){
         puntaje = puntaje + 1;                                                //Contaje de puntaje y puntaje máximo y declaración de su texto en pantalla
         puntajemaximo = max(puntaje, puntajemaximo);
       }
-      if(y > height || y < 0 || (abs(width/2-vx[i]) < 25 && abs(y-vy[i]) > 100)) {
+      if(y > height || y < 0 || (abs(width/2-vx[i]) < 25 && abs(y-vy[i]) > 150)) {
         modojuego = 1;
         puntaje = 0;
       }
@@ -74,6 +80,9 @@ void draw(){
     fill(0);
             
             
+   } else if(modojuego == 2){
+     guia = loadImage("guia.png");
+     image(guia,width/2,height/2);
    } else {
      imageMode(CENTER);
      fondo = loadImage("New york 2.jpg");
