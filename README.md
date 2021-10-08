@@ -8,7 +8,7 @@ Transcurria la mañana del 11 de septiembre de 2001 en la cuidad de Nueva York c
 El juego consiste en un avion que se mueve verticalmente y se debe pasar a través de los obstaculos, entre mas lejos se llegue mayor sera el puntaje
 
 # Control de juego
-![Controles](https://user-images.githubusercontent.com/89653092/136303009-441c446f-135c-494f-a940-5f974e24fa17.png)
+![guia](https://user-images.githubusercontent.com/89653092/136494027-feab1c74-ce7a-4fea-aa98-e66a94a87759.png)
 
 
 # Clasificacion
