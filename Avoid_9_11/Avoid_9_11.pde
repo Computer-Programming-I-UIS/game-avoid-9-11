@@ -2,7 +2,7 @@
 PImage fondo, S, B; 
 PImage edificio;
 PImage pantallainicio;
-PImage guia;
+PImage guia, creditos;
 
 //--Variables usadas--
 int x = 0, y; 
@@ -30,13 +30,19 @@ void setup(){
 
 void mousePressed(){
   if(modojuego == 1){
-    if(mouseX > 468 && mouseX < 806 && mouseY > 486 && mouseY < 553){
+    if(mouseX > 468 && mouseX < 808 && mouseY > 489 && mouseY < 556){
     modojuego = 0;
   }
-  if(mouseX > 505 && mouseX < 706 && mouseY > 580 && mouseY < 644){
+  if(mouseX > 1080 && mouseX < 1297 && mouseY > 662 && mouseY < 695){
+      modojuego = 3;}
+      }else if (modojuego == 3) {
+      if(mouseX > 922 && mouseX < 1234 && mouseY > 605 && mouseY < 664){
+      modojuego = 1; 
+    }
+      }      
+  if(mouseX > 505 && mouseX < 766 && mouseY > 575 && mouseY < 646){
       modojuego = 2;
-    } 
-  }else if (modojuego == 2) {
+    } else if (modojuego == 2) {
       if(mouseX > 860 && mouseX < 1190 && mouseY > 590 && mouseY < 680){
       modojuego = 1; 
     }
@@ -45,7 +51,7 @@ void mousePressed(){
 
 void draw(){
   if(modojuego == 0){
-    fondo = loadImage("New york 2.jpg");
+    fondo = loadImage("new york.jpg");
     imageMode(CORNER);
     image(fondo, x, 0); 
     image(fondo, x+fondo.width, 0);          //Movimiento del fondo
@@ -83,9 +89,12 @@ void draw(){
    } else if(modojuego == 2){
      guia = loadImage("guia.png");
      image(guia,width/2,height/2);
-   } else {
+   } else if(modojuego == 3){
+     creditos = loadImage("creditos.png");
+     image(creditos,width/2,height/2);
+   }else {
      imageMode(CENTER);
-     fondo = loadImage("New york 2.jpg");
+     fondo = loadImage("new york.jpg");
      image(fondo, width/2, height/2); 
      pantallainicio = loadImage("pantallainicio.png");            //Situar pantalla de incio (Formato PNG) por encima del background del juego
      image(pantallainicio, width/2, height/2);
