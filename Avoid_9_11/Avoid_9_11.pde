@@ -1,3 +1,8 @@
+//--Sonido--
+import ddf.minim.*;
+Minim minim;               //Biblioteca para reproducir sonido
+AudioPlayer musica;
+
 //--Imagenes usadas--
 PImage fondo, S, B; 
 PImage edificio;
@@ -10,7 +15,6 @@ int x = 0, y;
 int[] vx = new int [2];     //Arrays para declarar la cantidad de edificios que se generan
 int[] vy = new int [2];
 int modojuego = 1;          // 1 es jugar, 0 es la pantalla de comienzo
-//int fond = 0;             //Inexplicable aparición de esta variable, por ahora no se usa
 int puntajemaximo = 0;
 int puntaje = 0;
 avion Avion;                //Declaración del objeto de nombre avión
@@ -25,6 +29,9 @@ void setup(){
   fill(255);                                      //Características fuente
   textSize(55);
   size(1300, 700);
+  minim = new Minim(this);
+  musica = minim.loadFile("musica.mp3");
+  musica.loop();
   Avion = new avion();                            //Creación del objeto avión
 }
 
@@ -36,7 +43,7 @@ void mousePressed(){
   if(mouseX > 1080 && mouseX < 1297 && mouseY > 662 && mouseY < 695){
       modojuego = 3;}
       }else if (modojuego == 3) {
-      if(mouseX > 922 && mouseX < 1234 && mouseY > 605 && mouseY < 664){
+      if(mouseX > 922 && mouseX < 1234 && mouseY > 605 && mouseY < 664){                        //Configuración de botones de la pantalla principal y menu del juego
       modojuego = 1; 
     }
       }      
@@ -88,7 +95,7 @@ void draw(){
             
    } else if(modojuego == 2){
      guia = loadImage("guia.png");
-     image(guia,width/2,height/2);
+     image(guia,width/2,height/2);                                //Pantallas de guía y créditos
    } else if(modojuego == 3){
      creditos = loadImage("creditos.png");
      image(creditos,width/2,height/2);
